@@ -190,6 +190,8 @@ class Libguestfs < Formula
       inreplace "golang/Makefile.am", %r{^(golangsrcdir = )(.*)(GOROOT.*)(/src/)(pkg/)(\$\(pkg\).*)$}, "\\1#{lib}/golang\\4\\6"
     end
 
+    system "autoreconf -f -i"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
