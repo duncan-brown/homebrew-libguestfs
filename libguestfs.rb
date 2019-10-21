@@ -97,7 +97,7 @@ class Libguestfs < Formula
   # Bindings & tools
   depends_on "libvirt" => :optional
   option "with-python", "Build with Python bindings"
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
   option "with-java", "Build with Java bindings"
   depends_on :java => :optional
   option "with-perl", "Build with Perl bindings"
