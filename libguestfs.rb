@@ -225,7 +225,7 @@ class Libguestfs < Formula
       # The appliance doesn't change, and we don't want to copy 4GB for each new version
       # appliance_dir = "#{prefix}/var/appliance"
       # mkdir_p appliance_dir
-      libguestfs_path = "/usr/local/lib/guestfs"
+      libguestfs_path = "/usr/local/Cellar/libguestfs/1.30.1/lib/guestfs"
       mkdir_p libguestfs_path
       resource("fixed_appliance").stage(libguestfs_path)
       # (prefix/"var/appliance").install "/usr/local/lib/guestfs"
