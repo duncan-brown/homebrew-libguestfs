@@ -2,8 +2,8 @@ class Libguestfs < Formula
   homepage "http://libguestfs.org/"
 
   stable do
-    url "http://libguestfs.org/download/1.28-stable/libguestfs-1.30.1.tar.gz"
-    sha256 "bcdea7c9acf0fca87559dccd37ab6f2e523215be79c899f5c6c413e80d46cc06"
+    url "http://archive.libguestfs.org/1.30-stable/libguestfs-1.30.1.tar.gz"
+    sha256 "45e81ee1e205c21620af94d170c60da36342185c9b00d66fdaeb3ef77c966486"
 
     patch do
       # Change program_name to avoid collision with gnulib
