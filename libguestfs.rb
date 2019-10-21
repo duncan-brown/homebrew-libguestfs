@@ -10,72 +10,6 @@ class Libguestfs < Formula
       url "https://raw.githubusercontent.com/duncan-brown/homebrew-libguestfs/master/libguestfs-gnulib.patch"
       sha256 "b88e85895494d29e3a0f56ef23a90673660b61cc6fdf64ae7e5fecf79546fdd0"
     end
-    # patch do
-    #   # Change program_name to avoid collision with gnulib
-    #   url "https://gist.githubusercontent.com/shulima/a0ad4c21b9287a034a4c/raw/656caed670d811692ef8a255fcff94ccc19620d9/program-name.patch"
-    #   sha256 "749f49782a24f6abeeb944b406771ca64aa19993bec27d09dd4a548312f5f326"
-    # end
-    # patch do
-    #   # Check whether lcrypt comes from a separate library
-    #   url "https://gist.githubusercontent.com/shulima/2feb769e9fcbb2f7a84f/raw/2e99df4f5b16ab8a9624163b9c7d34407ce688f0/lcrypt.patch"
-    #   sha256 "f6cae96bd32bb20308c087f091ffd7ff9240bfe8d3a5ea029eeedbeb4a1aa73e"
-    # end
-    # patch do
-    #   # Check if POSIX_FADVISE exists before using it
-    #   url "https://gist.githubusercontent.com/shulima/c45bc24af8e0291bfb95/raw/44057e50b0566fb8526838d4927db2f4aa04510f/posix_fadvise.patch"
-    #   sha256 "86cd41ddfe85309a2d1c0cc7ffc37330f83f3f5be5fc894b4127ec65cbf52d73"
-    # end
-    # patch do
-    #   # Replace Linux-specific fuse commands
-    #   url "https://gist.githubusercontent.com/shulima/b1bfa6accd67c457d5c0/raw/8405558ed32897e5294675f5f2b4bd65990b6f3c/fuse-bsd.patch"
-    #   sha256 "cff6759d306077c199bc2ef9503957a0be15b87006e4a07eeb1ba725c5515059"
-    # end
-    # patch do
-    #   # Turn off doclint to allow Java bindings to compile
-    #   url "https://gist.githubusercontent.com/shulima/00735be5ece79da21b91/raw/c259d2076c2fc620052b72d71a48bb464b5a4e3d/java_doclint.patch"
-    #   sha256 "d32d895daa359111194485ed0d04ab29251952e9395235e17a8426388aeea2c2"
-    # end
-    # patch do
-    #   # Add third parameter to xdrproc_t callbacks
-    #   url "https://gist.githubusercontent.com/shulima/65b6445698c4d61d7314/raw/1a873e3f70d6805f346d972bcf2ae734abb57000/xdrproc_t.patch"
-    #   sha256 "83aaa05ab8e348ca740cacd43faa51ad3b20c80441da35d10f222f6a6b27952f"
-    # end
-    # patch do
-    #   # Use getprogname where available
-    #   url "https://gist.githubusercontent.com/shulima/b232a15b8ff877f817bd/raw/4e301e4e7a02d3aa27f3c2fb5faee69c1c39f3b2/getprogname.patch"
-    #   sha256 "6aafa3718b73c45124c72357b460ddc91accc0a418e830a38a933f43cd2feac2"
-    # end
-    # patch do
-    #   # Add MacOSX-specific byteswap defines
-    #   url "https://gist.githubusercontent.com/shulima/5ad4c6fbfdfd27048fe8/raw/aff4eaf1c092af50e9b4af46fca352f743bbc9a1/byteswap.patch"
-    #   sha256 "e653c59b38cbe2b77cd0271603007db0c2973d00fe666cfbb42732eeade1ca28"
-    # end
-    # patch do
-    #   # Define SOCK_CLOEXEC and SOCK_NONBLOCK
-    #   url "https://gist.githubusercontent.com/shulima/3ca0eed701cc27bfbc71/raw/308405bd49188d414caf1198d296d37060c02777/sock_defines.patch"
-    #   sha256 "bca242cba0ceb73852007e75f83437d081ae7323790928eb0f0be63de3b33afe"
-    # end
-    # patch do
-    #   # Look up correct extension for ruby libs
-    #   url "https://gist.githubusercontent.com/shulima/c42dbaadd26535725666/raw/c86b370ec2797f0e3fe76a96c9852de6e015f586/ruby_dlext.patch"
-    #   sha256 "e3ed3c851c5f294bf3ff61aca64be8baff857740a8a7d842097bc9f3e140562a"
-    # end
-    # patch do
-    #   # Add DYLD_LIBRARY_PATH
-    #   url "https://gist.githubusercontent.com/shulima/c5fa3de7c84a0352e97e/raw/961e857c4201a82ad05126fbb17bd1f2912f5f43/dyld_library_path.patch"
-    #   sha256 "254d9186880cd17cdf478a514b327e372eebaed539df9b172dceb35021265e6c"
-    # end
-  end
-
-  devel do
-    url "http://libguestfs.org/download/1.31-development/libguestfs-1.31.7.tar.gz"
-    sha256 "62318ac89baef0dcd3f5bd27996435fd3449878c7e490d3566a4fd40777fa092"
-
-    patch do 
-      # Change program_name to avoid collision with gnulib
-      url "https://gist.github.com/zchee/2845dac68b8d71b6c1f5/raw/ade1096e057711ab50cf0310ceb9a19e176577d2/libguestfs-gnulib.patch"
-      sha256 "b88e85895494d29e3a0f56ef23a90673660b61cc6fdf64ae7e5fecf79546fdd0"
-    end
   end
 
   depends_on "autoconf" => :build
@@ -108,21 +42,6 @@ class Libguestfs < Formula
 
   # Download the precompiled appliance unless explicitly told not to.
   option "without-fixed-appliance", "Not Recommended: Skip downloading the fixed-appliance(supermin kernel)"
-
-  # The two required gnulib patches have been reported to gnulib mailing list, but with little effect so far.
-  # patch do
-  #   # Add an implementation of open_memstream for BSD/Mac.
-  #   # Using Eric Blake's proposal originally published here: https://lists.gnu.org/archive/html/bug-gnulib/2010-04/msg00379.html
-  #   # and mentioned again here: http://lists.gnu.org/archive/html/bug-gnulib/2015-02/msg00083.html
-  #   url "https://gist.githubusercontent.com/shulima/93138eb342fe94273edd/raw/c75eac3a7f536dca526f52cd8cb5c0d6ce8beecc/gnulib-open_memstream.patch"
-  #   sha256 "d62f539def7300e4155bf2447b3c22049938a279957a4a97964d2d04440b58ce"
-  # end
-  # patch do
-  #   # Add a program_name equivalent for Mac.
-  #   # http://lists.gnu.org/archive/html/bug-gnulib/2015-02/msg00078.html
-  #   url "https://gist.githubusercontent.com/shulima/d851f8f35526db5e2fe9/raw/f80f6a73ec102bbdea2394d9bd3482b400853f2c/gnulib-program_name.patch"
-  #   sha256 "d17d1962b98a3418a335915de8a2da219e4598d42c24555bbbc5b0c1177dd38c"
-  # end
 
   # Since we can't build an appliance, the recommended way is to download a fixed one.
   resource "fixed_appliance" do
@@ -209,17 +128,6 @@ class Libguestfs < Formula
 
     ENV["REALLY_INSTALL"] = "yes"
     system "make", "install"
-
-    if build.with? "go"
-      # Fix maked go files permission
-      # FileUtils.chmod_R "+w", "#{lib}/golang/src/libguestfs.org/guestfs"
-      # Fix not according Go fmt guideline
-      # system "gofmt", "-w", "#{lib}/golang/src/libguestfs.org/guestfs"
-      # Symlink $GOPATH instead $GOROOT
-      # TODO brew do not parse $GOROOT and $GOPATH
-      # (lib/"golang/pkg").install "#{ENV["GOPATH"]}/pkg"
-      # (lib/"golang/src").install "#{ENV["GOPATH"]}/src"
-    end
 
     if build.with? "fixed-appliance"
       # The appliance doesn't change, and we don't want to copy 4GB for each new version
