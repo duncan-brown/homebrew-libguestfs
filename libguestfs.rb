@@ -143,7 +143,7 @@ class Libguestfs < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       A fixed appliance is required for libguestfs to work on Mac OS X.
       Unless you choose to build --without-fixed-appliance, it's downloaded for
       you and placed in the following path:
